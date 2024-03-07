@@ -1,0 +1,59 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/hotel"></ion-back-button>
+    </ion-buttons>
+    <ion-title>{{loadedHotel.hname}}</ion-title>
+
+    <ion-buttons slot="primary">
+      <ion-button (click)="onDeleteHotel()">
+        <ion-icon name="trash" slot="icon-only"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+<ion-grid no-padding>
+  <ion-row>
+    <ion-col no-padding>
+      <ion-img [src]="loadedHotel.himageUrl"></ion-img>
+    </ion-col>
+  </ion-row>
+
+  <ion-row>
+    <ion-col>
+      <h1 text-right>{{loadedHotel.hname}}</h1>
+    </ion-col>
+  </ion-row>
+  <ion-row>
+    <ion-col>
+      <ion-list>
+        <ion-item>
+         Hotel ID: {{loadedHotel.hid}}
+        </ion-item>
+        <ion-item>
+         Name: {{loadedHotel.hname}}
+         </ion-item>
+         <ion-item>
+         Ratings: {{loadedHotel.hrating[1]}}
+         <ion-icon slot="end" *ngFor="let n of loadedHotel.hrating[0]; let i = index" [name]="i < loadedHotel.hrating[2]? 'star' : 'star-outline'"></ion-icon>
+         </ion-item>
+          <P> Room types</P>
+        <ion-item *ngFor="let au of loadedHotel.hrtype">
+          <ion-badge color="tertiary" slot="start">{{au}}</ion-badge>
+        </ion-item>
+        <P> Adress</P>
+        <ion-item>
+          Street: {{loadedHotel.haddress[0]}},
+          City: {{loadedHotel.haddress[1]}}<br>
+          Phone: {{loadedHotel.haddress[2]}}<br>
+          Email : {{loadedHotel.haddress[3]}}
+        </ion-item>
+      </ion-list>
+    </ion-col>
+  </ion-row>
+</ion-grid>
+
+</ion-content>

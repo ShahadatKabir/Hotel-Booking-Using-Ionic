@@ -1,0 +1,6 @@
+{
+	"appId": "com.hotel",
+	"appName": "Hotel",
+	"webDir": "www",
+	"bundledWebRuntime": false
+}
